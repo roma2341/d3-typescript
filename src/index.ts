@@ -1,35 +1,25 @@
 import * as d3 from "d3";
 
-let l = console.log
+// Данные для визуализации в пикселях
+var data = [20, 100, 60, 40, 70]
+// Ширина столбика гистограммы
+var barWidth = 20
 
-interface Data {
-    x: number;
-    y: number;
-}
+// Аналог document.querySelector('svg') или $('svg')
+d3.select("svg")
+    // Самая сложная для понимания часть.
+    // D3 связывает еще не созданные элементы с данными.
+    .selectAll("rect")
+    .data(data)
+    .enter()
+    // Код ниже выполнится 5 раз. Ровно столько у нас данных.
 
-
-d3.csv("data.csv").then((csv: any) => {
-    let data = csv.map((d) => {
-        return {
-            x: parseInt(d.x),
-            y: parseInt(d.y)
-        }
-    } )
-
-draw(data)
-    
-}, (fail) => l(fail))
-
-
-function draw(data:Data[]) {
-    let chart = d3.select("#container")
-        .append("svg")
-    
-    const h:number = 300
-    const w:number = 700
-
-    chart
-        .attr("width", w)
-        .attr("height", h)
-
-}
+    // Добавляем прямоугольник тегом rect с нужной шириной,
+    // высотой и координатами. Код похож на jQuery.
+    .append("rect")
+    .attr("width", barWidth)
+    .attr("height", d => d)
+    // Изначально все прямоугольники спозиционированы
+    // абсолютно и находятся в координате 0,0
+    // Сдвигаем прямоугольники по оси x, на [barWidth * i]
+    .attr("x", (d, i) => barWidth * i)
