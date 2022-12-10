@@ -1,42 +1,19 @@
-body {
-    background-color: #F2F2F2;
-}
-h1 {
-    text-align: center;
-    font-size: 30px;
-    font-family: "Avenir, Helvetica Neue, Arial, sans-serif";
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #000;
-    margin-bottom: 40px;
-    margin-top: 160px;
+svg rect {
+    fill: #80cbc4;
 }
 
-#container {
-    max-width: 800px;
-    margin: 0 auto;
+svg text {
+    fill: white;
+    font: 10px sans-serif;
+    text-anchor: end;
 }
-
-.author {
-    font: 20px "Adobe Text Pro, Times New Roman, Georgia, serif";
-    text-align: center;
-    margin-bottom: 140px;
-    font-style: italic;
+.chart-container{
+    background-color: #2F4A6D;
 }
-
-.smallcaps {
-    font-variant-caps: small-caps;
-    -moz-font-feature-settings: "smcp";
-    -webkit-font-feature-settings: "smcp";
-    font-feature-settings: "smcp";
-    font-style: normal;
+.grid .tick line {
+    stroke: #9FAAAE;
+    stroke-opacity: 0.3;
 }
-
-article {
-    margin: 40px auto;
-    max-width: 800px;
-    font: 16px/24px "Avenir, Helvetica Neue, Arial, sans-serif";
-    font-weight: Regular;
-    color: #444;
+.grid path {
+    stroke-width: 0;
 }
